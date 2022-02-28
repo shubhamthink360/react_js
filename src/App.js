@@ -1,17 +1,37 @@
 // import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 import Header from './components/Header';
+import Tasks from './components/Tasks';
 
 function App() {
-  const test = "this is a test variable";
-  const testBool = true;
+  // State
+  const[tasks, setTasks] = useState([
+  {
+      id: 1,
+      text: "Task 1",
+      day: "28th Feb 2022",
+      reminder: true, 
+  },
+  {
+      id: 2,
+      text: "Task 2",
+      day: "1 March 2022",
+      reminder: true, 
+  },
+  {
+      id: 3,
+      text: "Task 3",
+      day: "28th Feb 2022",
+      reminder: false, 
+  },
+  ])
   return (
     
-    <>  <Header title="Default props and isRequired Test"/>     
+    <>      
       <div className="container">
-        <h4 className="text-bold">{test}</h4>
-        <h2 className="text-bold text-center">Hello from Backend</h2>
-        { testBool ? <p className="text-bold font-12">Paragraph Test</p> : " " } 
+      <Header title="Default props and isRequired Test"/>
+      <Tasks tasks={tasks}/>  
       </div>
     </>
   );
