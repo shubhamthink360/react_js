@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
 
 function App() {
+  const test = "this is a test variable";
+  const testBool = true;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <>  <Header title="Default props and isRequired Test"/>     
+      <div className="container">
+        <h4 className="text-bold">{test}</h4>
+        <h2 className="text-bold text-center">Hello from Backend</h2>
+        { testBool ? <p className="text-bold font-12">Paragraph Test</p> : " " } 
+      </div>
+    </>
   );
 }
-
 export default App;
