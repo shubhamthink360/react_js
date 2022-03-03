@@ -64,7 +64,9 @@ body {
 .task.reminder {
   border-left: 5px solid green;
 }
-
+.task.red {
+  border-left: 5px solid rgb(211, 11, 27);
+}
 .task h3 {
   display: flex;
   align-items: center;
