@@ -11,13 +11,14 @@ const AddTask = ({ onAdd }) => {
         if (!text) {
             alert('Please add a task')
             return
-          }
+        }
         if (!day) {
             alert('Please enter a date')
             return
           }
         onAdd({ text,day,reminder })
-        
+
+        //Clear Form
         setText('')
         setDay('')
         setReminder(false)
@@ -40,5 +41,4 @@ const AddTask = ({ onAdd }) => {
     </form>
   )
 }
-
 export default AddTask

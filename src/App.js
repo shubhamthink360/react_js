@@ -6,7 +6,12 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 
 function App() {
-  // State
+  //State for form :: toggle
+  const[showAddTask, setShowAddTask] = useState(
+    false
+  )
+
+  // State Task
   const[tasks, setTasks] = useState([
   {
     id: 1,
@@ -32,8 +37,11 @@ const deleteTask=(id) =>{
   setTasks(tasks.filter((task)=>task.id!==id));
 }
 const addTask = (task) => {
-  console.log(task)
-}
+  const id = Math.floor(Math.random() * 10000)+1;
+  const newTask = {id, ...task}
+  // state
+  setTasks([...tasks, newTask])
+  }
  //Toggle reminder
  const toggleReminder=(id) =>{
    setTasks(
@@ -45,8 +53,10 @@ const addTask = (task) => {
   return (
     <>      
       <div className="container">
-      <Header title="Default props and isRequired Test"/>
-      <AddTask onAdd={addTask}/>
+      {/* onAdd props:: function "setShowAddTask" and we have set opposite value */}
+      {/*showAdd props:: */}
+      <Header title="Default props and isRequired Test" onAdd={()=>setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+      { showAddTask && <AddTask onAdd={addTask}/>}
       {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>: "No tasks"}  
       
       </div>
